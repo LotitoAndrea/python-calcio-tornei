@@ -9,3 +9,6 @@ venv/
 
 # Environment variables
 .env
+
+# database.json
+database.json
