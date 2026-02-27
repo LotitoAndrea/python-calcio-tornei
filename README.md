@@ -39,13 +39,13 @@ python -m venv .venv
 # Windows
 .venv\Scripts\activate
 # macOS / Linux
-source .venv/bin/activate
+source venv/bin/activate
 
 # 3. Installa le dipendenze
 pip install -r requirements.txt
 
 # 4. Avvia il server
-uvicorn app.main:app --reload
+uvicorn backend.main:app --reload
 ```
 
 Il server sarà disponibile su: **http://127.0.0.1:8000**
