@@ -26,10 +26,9 @@ Tieniti pronto ad annotare questi valori man mano che li ottieni:
 | {squadraId4}     | 8cf216f0           |
 | {giocatoreId}    | f89ec899           |
 | {giocatoreId2}   | e2eac94e           |
-| {gironeId_A}     |                    |
-| {gironeId_B}     |                    |
-| {partitaId}      |                    |
-
+| {gironeId_A}     | b740524c           |
+| {gironeId_B}     | b0d26e0f           |
+| {partitaId}      | dde1368f           |
 ---
 
 ## FASE 1 — TORNEI V
