@@ -18,23 +18,23 @@ Tieniti pronto ad annotare questi valori man mano che li ottieni:
 
 | Variabile        | Valore da annotare |
 |------------------|--------------------|
-| {torneoId}       |                    |
-| {torneoIdVuoto}  |                    |
-| {squadraId1}     |                    |
-| {squadraId2}     |                    |
-| {squadraId3}     |                    |
-| {squadraId4}     |                    |
-| {giocatoreId}    |                    |
-| {giocatoreId2}   |                    |
+| {torneoId}       | c6eb47d2           |
+| {torneoIdVuoto}  | ec8efddc           |
+| {squadraId1}     | b6a4d167           |
+| {squadraId2}     | 4b0087e0           |
+| {squadraId3}     | 0cefd4be           |
+| {squadraId4}     | 8cf216f0           |
+| {giocatoreId}    | f89ec899           |
+| {giocatoreId2}   | e2eac94e           |
 | {gironeId_A}     |                    |
 | {gironeId_B}     |                    |
 | {partitaId}      |                    |
 
 ---
 
-## FASE 1 — TORNEI
+## FASE 1 — TORNEI V
 
-### Test 1 — Crea un torneo
+### Test 1 — Crea un torneo V
 
 Endpoint : POST /api/v1/tornei
 Body     :
@@ -55,7 +55,7 @@ Output atteso (status 201):
 
 ---
 
-### Test 2 — Lista tutti i tornei
+### Test 2 — Lista tutti i tornei V
 
 Endpoint : GET /api/v1/tornei
 Body     : nessuno
@@ -72,7 +72,7 @@ Output atteso (status 200):
 
 ---
 
-### Test 3 — Dettaglio torneo
+### Test 3 — Dettaglio torneo V
 
 Endpoint : GET /api/v1/tornei/{torneoId}
 Body     : nessuno
@@ -87,7 +87,7 @@ Output atteso (status 200):
 
 ---
 
-### Test 4 — Aggiorna torneo (PATCH parziale)
+### Test 4 — Aggiorna torneo (PATCH parziale) V
 
 Endpoint : PATCH /api/v1/tornei/{torneoId}
 Body     :
@@ -105,7 +105,7 @@ Output atteso (status 200):
 
 ---
 
-### Test 5 — Torneo inesistente (errore atteso)
+### Test 5 — Torneo inesistente (errore atteso) V
 
 Endpoint : GET /api/v1/tornei/aaaaaaaa
 Body     : nessuno
@@ -117,7 +117,7 @@ Output atteso (status 404):
 
 ---
 
-### Test 6 — Crea un torneo vuoto (usato dopo per test errore gironi)
+### Test 6 — Crea un torneo vuoto (usato dopo per test errore gironi) V
 
 Endpoint : POST /api/v1/tornei
 Body     :
@@ -136,9 +136,9 @@ Output atteso (status 201):
 
 ---
 
-## FASE 2 — SQUADRE
+## FASE 2 — SQUADRE V
 
-### Test 7 — Crea squadra 1
+### Test 7 — Crea squadra 1 V
 
 Endpoint : POST /api/v1/tornei/{torneoId}/squadre
 Body     :
@@ -158,7 +158,7 @@ Output atteso (status 201):
 
 ---
 
-### Test 8 — Crea squadra 2
+### Test 8 — Crea squadra 2 V
 
 Endpoint : POST /api/v1/tornei/{torneoId}/squadre
 Body     :
@@ -178,7 +178,7 @@ Output atteso (status 201):
 
 ---
 
-### Test 9 — Crea squadra 3
+### Test 9 — Crea squadra 3 V
 
 Endpoint : POST /api/v1/tornei/{torneoId}/squadre
 Body     :
@@ -190,7 +190,7 @@ Body     :
 
 ---
 
-### Test 10 — Crea squadra 4
+### Test 10 — Crea squadra 4 V
 
 Endpoint : POST /api/v1/tornei/{torneoId}/squadre
 Body     :
@@ -202,7 +202,7 @@ Body     :
 
 ---
 
-### Test 11 — Lista squadre del torneo
+### Test 11 — Lista squadre del torneo V
 
 Endpoint : GET /api/v1/tornei/{torneoId}/squadre
 Body     : nessuno
@@ -218,9 +218,9 @@ Output atteso (status 200):
 
 ---
 
-## FASE 3 — GIOCATORI
+## FASE 3 — GIOCATORI V
 
-### Test 12 — Aggiungi giocatore alla squadra 1
+### Test 12 — Aggiungi giocatore alla squadra 1 V
 
 Endpoint : POST /api/v1/squadre/{squadraId1}/giocatori
 Body     :
@@ -243,7 +243,7 @@ Output atteso (status 201):
 
 ---
 
-### Test 13 — Aggiungi secondo giocatore alla squadra 1
+### Test 13 — Aggiungi secondo giocatore alla squadra 1 V
 
 Endpoint : POST /api/v1/squadre/{squadraId1}/giocatori
 Body     :
@@ -266,7 +266,7 @@ Output atteso (status 201):
 
 ---
 
-### Test 14 — Verifica che i giocatori siano nella squadra
+### Test 14 — Verifica che i giocatori siano nella squadra V
 
 Endpoint : GET /api/v1/tornei/{torneoId}/squadre
 Body     : nessuno
@@ -277,7 +277,7 @@ Output atteso (status 200):
 
 ---
 
-### Test 15 — Elimina il secondo giocatore
+### Test 15 — Elimina il secondo giocatore V
 
 Endpoint : DELETE /api/v1/squadre/{squadraId1}/giocatori/{giocatoreId2}
 Body     : nessuno
@@ -289,7 +289,7 @@ Output atteso (status 200):
 
 ---
 
-### Test 16 — Elimina giocatore dalla squadra sbagliata (errore atteso)
+### Test 16 — Elimina giocatore dalla squadra sbagliata (errore atteso) V
 
 Endpoint : DELETE /api/v1/squadre/{squadraId2}/giocatori/{giocatoreId}
 Body     : nessuno
@@ -301,7 +301,7 @@ Output atteso (status 404):
 
 ---
 
-### Test 17 — Giocatore senza cognome (errore atteso)
+### Test 17 — Giocatore senza cognome (errore atteso) V
 
 Endpoint : POST /api/v1/squadre/{squadraId1}/giocatori
 Body     :
@@ -316,9 +316,9 @@ Output atteso (status 400):
 
 ---
 
-## FASE 4 — GIRONI
+## FASE 4 — GIRONI V
 
-### Test 18 — Genera gironi (errore torneo vuoto)
+### Test 18 — Genera gironi (errore torneo vuoto) V
 
 Endpoint : POST /api/v1/tornei/{torneoIdVuoto}/gironi/genera
 Body     :
@@ -333,7 +333,7 @@ Output atteso (status 400):
 
 ---
 
-### Test 19 — Genera gironi (torneo con 4 squadre)
+### Test 19 — Genera gironi (torneo con 4 squadre) V
 
 Endpoint : POST /api/v1/tornei/{torneoId}/gironi/genera
 Body     :
@@ -362,7 +362,7 @@ Output atteso (status 201):
 
 ---
 
-### Test 20 — Lista gironi del torneo
+### Test 20 — Lista gironi del torneo V
 
 Endpoint : GET /api/v1/tornei/{torneoId}/gironi
 Body     : nessuno
@@ -372,9 +372,9 @@ Output atteso (status 200):
 
 ---
 
-## FASE 5 — PARTITE
+## FASE 5 — PARTITE V
 
-### Test 21 — Genera calendario (errore torneo senza gironi)
+### Test 21 — Genera calendario (errore torneo senza gironi) V
 
 Endpoint : POST /api/v1/tornei/{torneoIdVuoto}/partite/genera-calendario
 Body     : nessuno
@@ -386,7 +386,7 @@ Output atteso (status 400):
 
 ---
 
-### Test 22 — Genera calendario partite
+### Test 22 — Genera calendario partite V
 
 Endpoint : POST /api/v1/tornei/{torneoId}/partite/genera-calendario
 Body     : nessuno
@@ -414,7 +414,7 @@ Output atteso (status 201):
 
 ---
 
-### Test 23 — Lista partite del torneo
+### Test 23 — Lista partite del torneo V
 
 Endpoint : GET /api/v1/tornei/{torneoId}/partite
 Body     : nessuno
@@ -424,9 +424,9 @@ Output atteso (status 200):
 
 ---
 
-## FASE 6 — RISULTATI E CLASSIFICA
+## FASE 6 — RISULTATI E CLASSIFICA V
 
-### Test 24 — Inserisci risultato (vittoria casa)
+### Test 24 — Inserisci risultato (vittoria casa) V
 
 Endpoint : POST /api/v1/partite/{partitaId}/risultato
 Body     :
@@ -446,7 +446,7 @@ Output atteso (status 200):
 
 ---
 
-### Test 25 — Leggi classifica Girone A (dopo vittoria)
+### Test 25 — Leggi classifica Girone A (dopo vittoria) V
 
 Endpoint : GET /api/v1/gironi/{gironeId_A}/classifica
 Body     : nessuno
@@ -481,7 +481,7 @@ Output atteso (status 200):
 
 ---
 
-### Test 26 — Correggi il risultato (pareggio)
+### Test 26 — Correggi il risultato (pareggio) V
 
 Endpoint : POST /api/v1/partite/{partitaId}/risultato
 Body     :
@@ -500,7 +500,7 @@ Output atteso (status 200):
 
 ---
 
-### Test 27 — Leggi classifica Girone A (dopo correzione)
+### Test 27 — Leggi classifica Girone A (dopo correzione) V
 
 Endpoint : GET /api/v1/gironi/{gironeId_A}/classifica
 Body     : nessuno
@@ -537,7 +537,7 @@ Output atteso (status 200):
 
 ---
 
-### Test 28 — Risultato con gol negativi (errore atteso)
+### Test 28 — Risultato con gol negativi (errore atteso) V
 
 Endpoint : POST /api/v1/partite/{partitaId}/risultato
 Body     :
@@ -553,7 +553,7 @@ Output atteso (status 400):
 
 ---
 
-### Test 29 — Risultato senza campo obbligatorio (errore atteso)
+### Test 29 — Risultato senza campo obbligatorio (errore atteso) V
 
 Endpoint : POST /api/v1/partite/{partitaId}/risultato
 Body     :
@@ -568,7 +568,7 @@ Output atteso (status 400):
 
 ---
 
-### Test 30 — Partita inesistente (errore atteso)
+### Test 30 — Partita inesistente (errore atteso) V
 
 Endpoint : POST /api/v1/partite/zzzzzzzz/risultato
 Body     :
@@ -584,9 +584,9 @@ Output atteso (status 404):
 
 ---
 
-## FASE 7 — ELIMINAZIONE
+## FASE 7 — ELIMINAZIONE V
 
-### Test 31 — Elimina il torneo
+### Test 31 — Elimina il torneo V
 
 Endpoint : DELETE /api/v1/tornei/{torneoId}
 Body     : nessuno
@@ -598,7 +598,7 @@ Output atteso (status 200):
 
 ---
 
-### Test 32 — Torneo eliminato non più raggiungibile
+### Test 32 — Torneo eliminato non più raggiungibile V
 
 Endpoint : GET /api/v1/tornei/{torneoId}
 Body     : nessuno

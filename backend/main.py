@@ -147,6 +147,6 @@ async def get_classifica(gironeID: str):
 
 @app.delete(f"{PREFIX}/reset-db", tags=["Reset DB"])
 async def reset_db():
-    """Resetta tutti i dati del database."""
+    """Resetta tutti i dati del database. **Attenzione: questa operazione è irreversibile!**"""
     services.query_cancellare_dati_db()
     return {"message": "Database resettato con successo"}
