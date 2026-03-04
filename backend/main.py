@@ -1,7 +1,11 @@
 # main.py - Entry point FastAPI
-# Avvio: uvicorn app.main:app --reload
+# Avvio: uvicorn backend.main:app --reload
+
+from pathlib import Path
 
 from fastapi import FastAPI, Body
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from typing import Any
 from tinydb import TinyDB, Query
 
@@ -15,6 +19,15 @@ app = FastAPI(
     ),
     version="1.1.5",
     contact={"name": "SGTC Gestione Tornei"},
+)
+
+# ── CORS (permetti tutte le origini in sviluppo) ──
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 db = TinyDB("database.json")
@@ -80,6 +93,12 @@ async def lista_squadre(torneoID: str):
 async def crea_giocatore(squadraId: str, data: dict[str, Any] = Body(...)):
     """Aggiunge un giocatore a una squadra. Body: `{"nome": "...", "cognome": "...", "numero_maglia": 10}`"""
     return services.crea_giocatore(squadraId, data)
+
+
+@app.get(f"{PREFIX}/squadre/{{squadraId}}/giocatori", tags=["Giocatori"])
+async def lista_giocatori(squadraId: str):
+    """Lista tutti i giocatori di una squadra."""
+    return services.lista_giocatori(squadraId)
 
 
 @app.delete(f"{PREFIX}/squadre/{{squadraId}}/giocatori/{{giocatoreId}}", tags=["Giocatori"])
@@ -150,3 +169,9 @@ async def reset_db():
     """Resetta tutti i dati del database. **Attenzione: questa operazione è irreversibile!**"""
     services.query_cancellare_dati_db()
     return {"message": "Database resettato con successo"}
+
+
+# ── STATIC FILES (frontend) — montato DOPO le rotte API ──
+_frontend_dir = Path(__file__).resolve().parent.parent / "frontend"
+if _frontend_dir.is_dir():
+    app.mount("/", StaticFiles(directory=str(_frontend_dir), html=True), name="frontend")

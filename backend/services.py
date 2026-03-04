@@ -153,6 +153,12 @@ def crea_giocatore(squadra_id: str, data: dict) -> dict:
     return giocatore
 
 
+def lista_giocatori(squadra_id: str) -> list:
+    """Restituisce tutti i giocatori di una squadra dallo store in memoria."""
+    _get_squadra(squadra_id)
+    return [g for g in store.giocatori.values() if g["squadra_id"] == squadra_id]
+
+
 def elimina_giocatore(squadra_id: str, giocatore_id: str) -> dict:
     squadra = _get_squadra(squadra_id)
     giocatore = store.giocatori.get(giocatore_id)
